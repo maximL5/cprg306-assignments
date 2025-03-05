@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function NewItem() {
 
-    const [itemName, setName] = useState("Item name");
+    const [itemName, setName] = useState("");
 
     const [count, setCount] = useState(1);
 
@@ -31,7 +31,7 @@ export default function NewItem() {
     <div className="flex flex-col items-center justify-center pt-20">
         <form className=" bg-gray-800 rounded-lg p-5">
             <div className="flex mb-4 items-center justify-center">
-            <input className="flex p-2 px-5 text-black rounded-lg" onChange={(e) => setName(e.target.value)} placeholder="Item name" id="itemName" type="text"/>
+            <input className="flex p-2 px-5 text-black rounded-lg" onChange={(e) => setName(e.target.value)} value={itemName} id="itemName" type="text"/>
             </div>
 
             <div className="flex flex-row items-center mb-5">
