@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Item from "./item";
 
-export default function ItemList({ items }) {
+export default function ItemList({ items, onItemSelect }) {  // Add onItemSelect to props
   const [sortBy, setSortBy] = useState("name");
 
   const sortItems = () => {
@@ -34,7 +34,11 @@ export default function ItemList({ items }) {
       </div>
       <ul>
         {sortedItems.map((item) => (
-          <Item key={item.id} {...item} />
+          <Item 
+            key={item.id} 
+            {...item} 
+            onSelect={() => onItemSelect(item)}  // Pass onSelect prop
+          />
         ))}
       </ul>
     </div>

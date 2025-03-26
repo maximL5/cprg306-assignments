@@ -2,20 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
-// Define the type for a meal (optional but recommended for TypeScript)
-type Meal = {
-  idMeal: string;
-  strMeal: string;
-  strMealThumb: string;
-};
-
-// Define the props type for the component
-type MealIdeasProps = {
-  ingredient: string;
-};
-
 // API fetch function (outside the component)
-async function fetchMealIdeas(ingredient: string): Promise<Meal[]> {
+async function fetchMealIdeas(ingredient) {
   try {
     const response = await fetch(
       `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`
@@ -28,9 +16,9 @@ async function fetchMealIdeas(ingredient: string): Promise<Meal[]> {
   }
 }
 
-export default function MealIdeas({ ingredient }: MealIdeasProps) {
+export default function MealIdeas({ ingredient }) {
   // State to hold the meal ideas
-  const [meals, setMeals] = useState<Meal[]>([]);
+  const [meals, setMeals] = useState([]);
 
   // Function to load meal ideas
   const loadMealIdeas = async () => {
